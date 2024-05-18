@@ -5,14 +5,43 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #69736b5d;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #000;
+    --container-background: #fff;
+    --container-shadow: rgba(0, 0, 0, 0.1);
+    --input-border: #ccc;
+    --button-background: #28a745;
+    --button-hover: #218838;
+    --edit-color: #007bff;
+    --edit-hover: #0056b3;
+    --delete-color: #dc3545;
+    --delete-hover: #c82333;
+}
+
+body.dark-mode {
+    --background-color: #333;
+    --text-color: #f0f0f0;
+    --container-background: #444;
+    --container-shadow: rgba(0, 0, 0, 0.5);
+    --input-border: #555;
+    --button-background: #006400;
+    --button-hover: #004b00;
+    --edit-color: #87cefa;
+    --edit-hover: #4682b4;
+    --delete-color: #ff6347;
+    --delete-hover: #cd5c5c;
 }
 
 .container {
-    background: #ffffff;
+    background: var(--container-background);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--container-shadow);
     width: 100%;
     max-width: 400px;
 }
@@ -23,30 +52,36 @@ h1 {
     text-align: center;
 }
 
+.mode-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
 .todo-input {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-#taskInput {
-    flex: 1;
+#taskInput, #dueDateInput {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     border-radius: 4px;
 }
 
+#taskInput {
+    flex: 1;
+}
+
 #dueDateInput {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     margin-left: 10px;
 }
 
 #addTaskButton {
     padding: 10px 20px;
     border: none;
-    background-color: #28a745;
+    background-color: var(--button-background);
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -54,7 +89,7 @@ h1 {
 }
 
 #addTaskButton:hover {
-    background-color: #218838;
+    background-color: var(--button-hover);
 }
 
 ul {
@@ -63,9 +98,9 @@ ul {
 }
 
 li {
-    background: #f9f9f9;
+    background: var(--container-background);
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
@@ -81,6 +116,7 @@ li input[type="text"] {
     padding: 0;
     margin: 0;
     font-size: 16px;
+    color: var(--text-color);
 }
 
 li input[type="text"]:focus {
@@ -90,25 +126,28 @@ li input[type="text"]:focus {
 li .due-date {
     margin-left: 10px;
     font-size: 14px;
-    color: #666;
+    color: var(--text-color);
 }
 
 button.edit, button.delete {
     background: none;
     border: none;
     cursor: pointer;
-    color: #007bff;
     margin-left: 10px;
 }
 
-button.delete {
-    color: #dc3545;
+button.edit {
+    color: var(--edit-color);
 }
 
 button.edit:hover {
-    color: #0056b3;
+    color: var(--edit-hover);
+}
+
+button.delete {
+    color: var(--delete-color);
 }
 
 button.delete:hover {
-    color: #c82333;
+    color: var(--delete-hover);
 }

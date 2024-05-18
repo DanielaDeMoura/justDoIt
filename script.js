@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dueDateInput = document.getElementById('dueDateInput');
     const addTaskButton = document.getElementById('addTaskButton');
     const taskList = document.getElementById('taskList');
+    const modeToggle = document.getElementById('modeToggle');
+    const body = document.body;
+
+    modeToggle.addEventListener('change', () => {
+        body.classList.toggle('dark-mode');
+    });
 
     addTaskButton.addEventListener('click', () => {
         const taskText = taskInput.value.trim();
